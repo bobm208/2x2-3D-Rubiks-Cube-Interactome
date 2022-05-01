@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title> 2x2 Rubiks Cube Interactome </title>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	
+	<script type="text/javascript" src="lib/three.js"></script>
+	
+	<script type="text/javascript" src="js/Rubik.js"></script>
+
+	<style>
+		div { border : 1px solid #d3d3e3 }
+		#north    { margin:0;  padding:1em;  }        
+		#south    { margin:0;  padding:1em;  }        
+		#east     { margin:0;  padding:1em;  width:10em; height:30em; float:left; margin-right:1.1em }        
+		#west     { margin:0;  padding:1em;  width:25em; height:30em; float:right; margin-left:1.1em }        
+		#center   { margin:0;  padding:1em;  padding-bottom:0em; }        
+		#center:after    { content:' '; clear:both; display:block; height:0; overflow:hidden }
+		
+		.group {
+		display: flex;
+		border:0px solid black;
+		flex-direction: row;
+		max-width: 100px;
+		}
+
+		.group > div {
+		margin: 1px;
+		}
+		
+	</style>
+
+</head>
+
+<body>
+
+	<div id="north">
+		<div><button><input type="button" onclick="scramble()" value="Scramble" /></button>
+		<button><input type="button" onclick="solve()" id="solve" value="Solve" /></button>
+		<button><input type="button" onclick="reset()" value="Reset" /></button></div>
+	</div>
+	<div id="east">
+	
+		Move Buttons<br>
+		<div class="group">
+			<div><button><input type="button" onclick="turnU()" value="U" /></button></div>
+			<div><button><input type="button" onclick="turnUPrime()" value="U'" /></button></div>
+		</div>
+		<div class="group">
+			<div><button><input type="button" onclick="turnD()" value="D" /></button></div>
+			<div><button><input type="button" onclick="turnDPrime()" value="D'" /></button></div>
+		</div>
+		<div class="group">
+			<div><button><input type="button" onclick="turnR()" value="R" /></button></div>
+			<div><button><input type="button" onclick="turnRPrime()" value="R'" /></button></div>
+		</div>
+		<div class="group">
+			<div><button><input type="button" onclick="turnL()" value="L" /></button></div>
+			<div><button><input type="button" onclick="turnLPrime()" value="L'" /></button></div>
+		</div>
+		<div class="group">
+			<div><button><input type="button" onclick="turnF()" value="F" /></button></div>
+			<div><button><input type="button" onclick="turnFPrime()" value="F'" /></button></div>
+		</div>
+		<div class="group">
+			<div><button><input type="button" onclick="turnB()" value="B" /></button></div>
+			<div><button><input type="button" onclick="turnBPrime()" value="B'" /></button></div>
+		</div>
+		
+		Rotation Buttons<br>
+		<div class="group">
+			<div><button><input type="button" onclick="rotateX()" value="X" /></button></div>
+			<div><button><input type="button" onclick="rotateXPrime()" value="X'" /></button></div>
+		</div>
+		<div class="group">
+			<div><button><input type="button" onclick="rotateY()" value="Y" /></button></div>
+			<div><button><input type="button" onclick="rotateYPrime()" value="Y'" /></button></div>
+		</div>
+		<div class="group">
+			<div><button><input type="button" onclick="rotateZ()" value="Z" /></button></div>
+			<div><button><input type="button" onclick="rotateZPrime()" value="Z'" /></button></div>
+		</div>
+	
+	</div>
+	<div id="west">
+		Log </br>
+		<textarea name="movelog" cols="50" rows="30"></textarea>
+	</div>
+	<div id="center">
+		<div id="scene" width="800" height="500">
+			<script type="text/javascript">
+				(function () {
+					var container = document.getElementById('scene');
+					cube(container);
+				})();
+			</script>
+		</div>
+	</div>
+	<div id="south">
+		Made By Kevin Xin with THREE.js 2022
+	</div>
+
+</body>
+
+</html>
