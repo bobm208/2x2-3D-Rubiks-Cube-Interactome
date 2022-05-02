@@ -1,4 +1,4 @@
-# 2x2-Rubiks-s-Cube-Interactome
+# 2x2-3D-Rubiks-Cube-Interactome
 An interactive 2x2 Rubik's Cube solver made with ThreeJS. The cube turns through the use of buttons, scrambles accordingly to a randomly generated sequence, and solves with a beginner's method while logging out all the moves. The interactome can be run by opening the index.html file with a web browser. 
 
 The control buttons, which turn and rotate the cube, are in accordance with Rubik's Cube notation, a guide which can be found here: https://ruwix.com/the-rubiks-cube/notation/. Each button corresponds to the notation in which the cube will be turned and or rotated. 
